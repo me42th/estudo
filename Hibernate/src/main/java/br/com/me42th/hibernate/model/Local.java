@@ -22,6 +22,11 @@ public class Local implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Override
+    public String toString() {
+        return "Local{" + "id=" + id + ", predio=" + predio + ", sala=" + sala + ", capacidade=" + capacidade + '}';
+    }
     private String predio;
     private String sala;
     private int capacidade;
