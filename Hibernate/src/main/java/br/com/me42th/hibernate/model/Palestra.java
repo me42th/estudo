@@ -7,12 +7,15 @@ package br.com.me42th.hibernate.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,9 +36,20 @@ public class Palestra implements Serializable{
     private Date dataHora; 
     @Column(name="Duracao")
     private int duracao;
+
+    public List<Palestrante> getPalestrantes() {
+        return palestrantes;
+    }
+
+    public void setPalestrantes(List<Palestrante> palestrantes) {
+        this.palestrantes = palestrantes;
+    }
     @OneToOne(cascade = CascadeType.ALL)
     private Local local;
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="palestra")
+    @JoinColumn(name = "palestra_id")
+    private List<Palestrante> palestrantes;
+    
     @Override
     public String toString() {
         return "Palestra{" + "id=" + id + ", titulo=" + titulo + ", dataHora=" + dataHora + ", duracao=" + duracao + ", local=" + local + '}';

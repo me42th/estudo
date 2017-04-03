@@ -6,9 +6,8 @@
 package br.com.me42th.hibernate.tr_sh;
 
 import br.com.me42th.hibernate.dao.PalestraDAO;
-import br.com.me42th.hibernate.model.Local;
-import br.com.me42th.hibernate.model.Palestra;
-import java.util.Date;
+import br.com.me42th.hibernate.dao.PalestranteDAO;
+import br.com.me42th.hibernate.model.Palestrante;
 
 
 /**
@@ -17,7 +16,42 @@ import java.util.Date;
  */
 public class PalestraTeste {
     public static void main(String[] args) {
-        
+    for(Palestrante p : PalestraDAO.search(2).getPalestrantes())
+            System.out.println(p);
+    //==>Insert && OneToMany && ManyToOne    
+    /*Palestrante p = new Palestrante();
+        p.setMinibio("Alguem 1");
+        p.setNome("Fulano");
+        p.setPalestra(PalestraDAO.search(2));
+    PalestranteDAO.save(p);
+    p = new Palestrante();
+        p.setMinibio("Alguem 2");
+        p.setNome("Cicrano");
+        p.setPalestra(PalestraDAO.search(2));
+    PalestranteDAO.save(p);
+    p = new Palestrante();
+        p.setMinibio("Alguem 3");
+        p.setNome("Beltrano");
+        p.setPalestra(PalestraDAO.search(2));
+    PalestranteDAO.save(p);
+    p = new Palestrante();
+        p.setMinibio("Alguem 4");
+        p.setNome("Estroncio");
+        p.setPalestra(PalestraDAO.search(2));
+    PalestranteDAO.save(p);
+    p = new Palestrante();
+        p.setMinibio("Alguem 5");
+        p.setNome("Jaonilcion");
+        p.setPalestra(PalestraDAO.search(2));
+    PalestranteDAO.save(p);
+    p = new Palestrante();
+        p.setMinibio("Alguem 6");
+        p.setNome("Laraublides");
+        p.setPalestra(PalestraDAO.search(2));
+    PalestranteDAO.save(p);
+    */
+    }
+}
     //==>INSERT
         /*
         Palestra p = new Palestra();
@@ -42,10 +76,8 @@ public class PalestraTeste {
         PalestraDAO.remove(1);
         System.out.println(":)");
         */
-    ////==>Select
+    //==>Select
         /*
         Palestra p = PalestraDAO.search(2);
         System.out.println(p);
         */
-    }
-}
