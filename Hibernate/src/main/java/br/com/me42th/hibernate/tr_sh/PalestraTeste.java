@@ -10,7 +10,6 @@ import br.com.me42th.hibernate.dao.PalestraDAO;
 import br.com.me42th.hibernate.model.Palestra;
 import br.com.me42th.hibernate.model.Palestrante;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -21,21 +20,25 @@ import java.util.List;
  */
 public class PalestraTeste {
     public static void main(String[] args) {
-    
-    Palestra p = new Palestra();
-    p.setDataHora(new Date(5000));
-    p.setDuracao(0);
-    p.setLocal(LocalDAO.search(9));
     List<Palestrante> lista = new ArrayList<>();
-    Palestrante pa = new Palestrante();
-    pa.setId(1);
-    lista.add(pa);
-    p.setPalestrantes(lista);
-    PalestraDAO.save(p);
-    System.out.println(PalestraDAO.search(3)+"\n \t "+ PalestraDAO.search(3).getPalestrantes().get(0));
-    System.out.println(PalestraDAO.search(4)+"\n \t "+ PalestraDAO.search(4).getPalestrantes().get(0)+
-                                             "\n \t "+ PalestraDAO.search(4).getPalestrantes().get(1));
+    Palestrante p = new Palestrante();
+    Palestra palestra = new Palestra();
+    palestra.setDataHora(new Date(100000));
+    palestra.setDuracao(5);
+    palestra.setLocal(LocalDAO.search(3));
+    palestra.setTitulo("Java com farinha");
+    p.setId(1);
+    lista.add(p);
+    p = new Palestrante();
+    p.setId(2);
+    lista.add(p);
+    palestra.setPalestrantes(lista);
+    PalestraDAO.save(palestra);
     
+    }
+}
+
+
     //==>Insert && OneToMany && ManyToOne    
     /*Palestrante p = new Palestrante();
         p.setMinibio("Alguem 1");
@@ -68,8 +71,7 @@ public class PalestraTeste {
         p.setPalestra(PalestraDAO.search(2));
     PalestranteDAO.save(p);
     */
-    }
-}
+
     //==>INSERT
         /*
         Palestra p = new Palestra();

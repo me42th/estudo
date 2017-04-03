@@ -16,7 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -47,7 +47,7 @@ public class Palestra implements Serializable{
     }
     @OneToOne(cascade = CascadeType.ALL)
     private Local local;
-    @OneToMany//(cascade = CascadeType.ALL, mappedBy="palestra")
+    @ManyToMany//(cascade = CascadeType.ALL, mappedBy="palestra")
     @JoinTable( 
             name = "palestra_palestrante", 
             joinColumns = @JoinColumn(name = "palestra_id"),
