@@ -17,7 +17,7 @@ public class Palestrante implements Serializable{
 
     @Override
     public String toString() {
-        return "Palestrante{" + "id=" + id + ", nome=" + nome + ", minibio=" + minibio + ", palestra=" + palestra + '}';
+        return "Palestrante{" + "id=" + id + ", nome=" + nome + ", minibio=" + minibio; //+ ", palestra=" + palestra + '}';
     }
     
     @Id
@@ -25,8 +25,8 @@ public class Palestrante implements Serializable{
     private int id;
     private String nome;
     private String minibio;
-    @ManyToOne
-    private Palestra palestra;
+    //@ManyToOne
+    //private Palestra palestra;
 
     public int getId() {
         return id;
@@ -52,11 +52,11 @@ public class Palestrante implements Serializable{
         this.minibio = minibio;
     }
 
-    public Palestra getPalestra() {
+   /* public Palestra getPalestra() {
         return palestra;
     }
 
     public void setPalestra(Palestra palestra) {
         this.palestra = palestra;
-    }
+    }*/
 }

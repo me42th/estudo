@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.com.me42th.hibernate.model.Local</class>
     <class>br.com.me42th.hibernate.model.Palestra</class>
+    <class>br.com.me42th.hibernate.model.Palestrante</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/livraria?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

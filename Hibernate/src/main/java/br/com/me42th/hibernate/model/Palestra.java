@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -46,8 +47,12 @@ public class Palestra implements Serializable{
     }
     @OneToOne(cascade = CascadeType.ALL)
     private Local local;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="palestra")
-    @JoinColumn(name = "palestra_id")
+    @OneToMany//(cascade = CascadeType.ALL, mappedBy="palestra")
+    @JoinTable( 
+            name = "palestra_palestrante", 
+            joinColumns = @JoinColumn(name = "palestra_id"),
+            inverseJoinColumns = @JoinColumn(name="palestrante_id")
+    )
     private List<Palestrante> palestrantes;
     
     @Override

@@ -39,7 +39,7 @@ public class PalestranteDAO {
              ex.printStackTrace();
         }
         finally{
-             em.close();
+             em.close(); 
         }
         return palestrante;
     }

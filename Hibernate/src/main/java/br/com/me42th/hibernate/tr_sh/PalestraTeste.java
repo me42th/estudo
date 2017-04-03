@@ -5,9 +5,14 @@
  */
 package br.com.me42th.hibernate.tr_sh;
 
+import br.com.me42th.hibernate.dao.LocalDAO;
 import br.com.me42th.hibernate.dao.PalestraDAO;
-import br.com.me42th.hibernate.dao.PalestranteDAO;
+import br.com.me42th.hibernate.model.Palestra;
 import br.com.me42th.hibernate.model.Palestrante;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -16,8 +21,21 @@ import br.com.me42th.hibernate.model.Palestrante;
  */
 public class PalestraTeste {
     public static void main(String[] args) {
-    for(Palestrante p : PalestraDAO.search(2).getPalestrantes())
-            System.out.println(p);
+    
+    Palestra p = new Palestra();
+    p.setDataHora(new Date(5000));
+    p.setDuracao(0);
+    p.setLocal(LocalDAO.search(9));
+    List<Palestrante> lista = new ArrayList<>();
+    Palestrante pa = new Palestrante();
+    pa.setId(1);
+    lista.add(pa);
+    p.setPalestrantes(lista);
+    PalestraDAO.save(p);
+    System.out.println(PalestraDAO.search(3)+"\n \t "+ PalestraDAO.search(3).getPalestrantes().get(0));
+    System.out.println(PalestraDAO.search(4)+"\n \t "+ PalestraDAO.search(4).getPalestrantes().get(0)+
+                                             "\n \t "+ PalestraDAO.search(4).getPalestrantes().get(1));
+    
     //==>Insert && OneToMany && ManyToOne    
     /*Palestrante p = new Palestrante();
         p.setMinibio("Alguem 1");

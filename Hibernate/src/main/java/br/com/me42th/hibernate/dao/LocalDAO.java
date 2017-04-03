@@ -34,7 +34,21 @@ public class LocalDAO {
         finally{
             em.close();
         }
+     return local;
+    }
     
-        return local;
+    public static Local search(int id){
+        EntityManager em = getEM();
+        Local resultado = null;
+        try{
+            em.getTransaction().begin();
+            resultado = em.find(Local.class,id);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            em.close();
+        }
+        return resultado;
     }
 }
