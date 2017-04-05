@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,6 +38,23 @@ public class Palestra implements Serializable{
     private Date dataHora; 
     @Column(name="Duracao")
     private int duracao;
+    @ManyToOne
+    private Evento evento;
+
+    public Palestra(int id) {
+        this.id = id;
+    }
+
+    public Palestra() {
+    }
+    
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
 
     public List<Palestrante> getPalestrantes() {
         return palestrantes;
