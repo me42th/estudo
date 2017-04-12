@@ -3,26 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.me42th.model.cap1;
+package br.com.me42th.model;
 
 import java.io.Serializable;
 import java.util.Scanner;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author david
  */
 //@Entity
-public class Funcionario implements Serializable{
+public class Governador implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String nome;
-
+    @OneToOne(cascade=CascadeType.ALL)
+    private Estado estado;
+    public static Governador getGovernador(){
+        Governador retorno = new Governador();
+        System.out.print("[Gov-NOME]\t");
+        retorno.nome = new Scanner(System.in).findInLine(".*");
+        retorno.estado = Estado.getEstado();
+        return retorno;
+    }
     public int getId() {
         return id;
     }
@@ -37,11 +47,5 @@ public class Funcionario implements Serializable{
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-    public static Funcionario getFuncionario(){
-        Funcionario retorno = new Funcionario();
-        System.out.print("[Func-NOME]\t");
-        retorno.nome = new Scanner(System.in).findInLine(".*");
-        return retorno;
     }
 }

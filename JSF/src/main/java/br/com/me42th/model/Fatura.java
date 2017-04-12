@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.me42th.model.cap1;
+package br.com.me42th.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import javax.persistence.Transient;
  *
  * @author david
  */
-@Entity
+//@Entity
 public class Fatura implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

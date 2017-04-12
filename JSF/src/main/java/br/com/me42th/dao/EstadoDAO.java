@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.me42th.dao.cap1;
+package br.com.me42th.dao;
 
-import br.com.me42th.model.cap1.Cliente;
+import br.com.me42th.model.Estado;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
@@ -13,42 +13,25 @@ import javax.persistence.Persistence;
  *
  * @author david
  */
-public class ClienteDAO {
+public class EstadoDAO {
+
     private static EntityManager getEM(){
         return Persistence
                 .createEntityManagerFactory("livraria")
                 .createEntityManager();
     }
-    public static Cliente save(Cliente c){
+    public static Estado save(Estado e){
         EntityManager em = getEM();
         try{
             em.getTransaction().begin();
-            em.persist(c);
+            em.persist(e);
             em.getTransaction().commit();
-        }
-        catch(Exception ex){
-            System.out.println(ex.getMessage());
-            em.getTransaction().rollback();
-        }
-        finally{
-            em.close();
-        }
-        return c;
-    }
-    
-    public static Cliente search(int i){
-        EntityManager em = getEM();
-        Cliente retorno = null;
-        try{
-            em.getTransaction().begin();
-            retorno = em.find(Cliente.class,i);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
             em.getTransaction().rollback();
         }finally{
             em.close();
         }
-        return retorno;
+        return e;
     }
-    
 }

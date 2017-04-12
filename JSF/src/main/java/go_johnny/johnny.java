@@ -5,14 +5,20 @@
  */
 package go_johnny;
 
-import br.com.me42th.dao.cap1.FaturaDAO;
-import br.com.me42th.model.cap1.Fatura;
+
 
 
 
 
 public class johnny {
-    public static void main(String[] args) {
-        System.out.println(FaturaDAO.save(Fatura.getFatura()).getId());
+    private String texto = "";
+    public String caixaAlta(){
+        return texto = texto.toUpperCase();
+    }
+    public String getTexto() {
+        return texto;
+    }
+    public void setTexto(String texto) {
+        this.texto = texto;
     }
 }
