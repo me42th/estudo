@@ -5,14 +5,14 @@
  */
 package go_johnny;
 
-import br.com.me42th.dao.EditoraDAO;
+import br.com.me42th.dao.cap1.FaturaDAO;
+import br.com.me42th.model.cap1.Fatura;
+
 
 
 
 public class johnny {
     public static void main(String[] args) {
-       EditoraDAO.remove(EditoraDAO.search(1));
-       
-        System.out.println(EditoraDAO.search(1));
+        System.out.println(FaturaDAO.save(Fatura.getFatura()).getId());
     }
 }
