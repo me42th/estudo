@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.me42th.model;
+package br.com.me42th.model.cap1;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Scanner;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,19 +17,32 @@ import javax.persistence.Id;
  *
  * @author david
  */
-@Entity
+//@Entity
 public class Editora implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+    private String email;
+    private Endereco endereco;
+    private String nome;
 
-    public Editora() {
+    
+    
+    public static Editora getEditora() {
+
+        Editora retorno = new Editora();
+        
+        System.out.print("[Editora-NOME]\t");
+        retorno.nome = new Scanner(System.in).findInLine(".*");
+        
+        System.out.print("[Editora-EMAIL]\t");
+        retorno.email = new Scanner(System.in).findInLine(".*");
+        
+        retorno.endereco = Endereco.getEndereco();
+        
+        return retorno;
     }
 
-    public Editora(String nome, String email) {
-        this.nome = nome;
-        this.email = email;
-    }
 
     @Override
     public int hashCode() {
@@ -36,6 +50,14 @@ public class Editora implements Serializable{
         hash = 97 * hash + this.id;
         hash = 97 * hash + Objects.hashCode(this.nome);
         return hash;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     @Override
@@ -60,7 +82,6 @@ public class Editora implements Serializable{
     public String toString() {
         return "Editora{" + "id=" + id + ", nome=" + nome + ", email=" + email + '}';
     }
-    private String nome;
 
     public int getId() {
         return id;
@@ -85,5 +106,5 @@ public class Editora implements Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
-    private String email;
+    
 }
