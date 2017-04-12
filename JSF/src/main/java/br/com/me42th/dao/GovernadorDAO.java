@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.me42th.dao.cap1;
+package br.com.me42th.dao;
 
-import br.com.me42th.model.cap1.Governador;
+import br.com.me42th.model.Governador;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 

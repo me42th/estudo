@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.me42th.dao.cap1;
+package br.com.me42th.dao;
 
-import br.com.me42th.model.cap1.Departamento;
+import br.com.me42th.model.Cliente;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
@@ -13,31 +13,35 @@ import javax.persistence.Persistence;
  *
  * @author david
  */
-public class DepartamentoDAO {
+public class ClienteDAO {
     private static EntityManager getEM(){
-    return Persistence.createEntityManagerFactory("livraria").createEntityManager();
+        return Persistence
+                .createEntityManagerFactory("livraria")
+                .createEntityManager();
     }
-    public static Departamento save(Departamento dept){
+    public static Cliente save(Cliente c){
         EntityManager em = getEM();
         try{
             em.getTransaction().begin();
-            em.persist(dept);
+            em.persist(c);
             em.getTransaction().commit();
-        }catch(Exception ex){
+        }
+        catch(Exception ex){
             System.out.println(ex.getMessage());
             em.getTransaction().rollback();
-        }finally{
+        }
+        finally{
             em.close();
         }
-        return dept;
+        return c;
     }
     
-    public static Departamento search(int id){
-        Departamento retorno = null;
+    public static Cliente search(int i){
         EntityManager em = getEM();
+        Cliente retorno = null;
         try{
             em.getTransaction().begin();
-            retorno= em.find(Departamento.class,id);
+            retorno = em.find(Cliente.class,i);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
             em.getTransaction().rollback();
@@ -46,4 +50,5 @@ public class DepartamentoDAO {
         }
         return retorno;
     }
+    
 }
