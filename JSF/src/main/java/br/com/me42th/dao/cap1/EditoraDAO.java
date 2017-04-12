@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.me42th.dao;
+package br.com.me42th.dao.cap1;
 
-import br.com.me42th.model.Editora;
+import br.com.me42th.model.cap1.Editora;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -17,7 +17,9 @@ import javax.persistence.Query;
  */
 public class EditoraDAO {
     private static EntityManager getEM(){
-        return Persistence.createEntityManagerFactory("livraria").createEntityManager();
+        return Persistence
+                .createEntityManagerFactory("livraria")
+                .createEntityManager();
     }
     
     public static Editora save(Editora editora){
