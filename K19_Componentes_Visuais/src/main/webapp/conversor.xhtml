@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Conversor</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputLabel value="De" for="de"/>
+            <br/>
+            <h:selectOneMenu value="#{conversor.de}" id="de">
+                <f:selectItems 
+                    value="#{conversor.taxas.keySet()}"
+                    var="moeda"
+                    itemLabel="#{moeda}"
+                    itemValue="#{moeda}"/>
+            </h:selectOneMenu>
+            <br/>
+            <h:outputLabel value="Para" for="para"/>
+            <br/>
+            <h:selectOneMenu id="para" value="#{conversor.para}">
+                <f:selectItems 
+                    value="#{conversor.taxas.keySet()}"
+                    var="moeda"
+                    itemLabel="#{moeda}"
+                    itemValue="#{moeda}"
+                    />
+            </h:selectOneMenu>
+            <br/>
+            <h:outputLabel for="valor" value="Valor"/>
+            <br/>
+            <h:inputText id="valor" value="#{conversor.valor}" size="3"/>
+            <br/>
+            <br/>
+            <h:commandButton value="Go"/>
+            <br/>
+            <br/>
+           
+        </h:form>
+        <h:outputFormat 
+            value="$$ {0}"
+            rendered="#{conversor.valor != null}"
+            >
+            <f:param value="#{conversor.conversao()}"/>
+        </h:outputFormat>
+            
+
+    </h:body>
+</html>
+
