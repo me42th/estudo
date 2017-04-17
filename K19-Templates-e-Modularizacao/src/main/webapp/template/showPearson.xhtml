@@ -1,0 +1,9 @@
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:outputFormat value="Este é um {0} e tem {1} anos">
+        <f:param value="#{ser.especie}"/>
+        <f:param value="#{ser.idade}"/>
+    </h:outputFormat>
+</ui:composition>
+
