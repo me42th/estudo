@@ -5,22 +5,30 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:form>
         <h:panelGrid columns="2">
-          
             <h:outputLabel value="COD" for="cod"/>
-            <h:inputText size="3" id="cod" value="#{funcionario.cod}">
-                <f:validateRequired/>
-                <f:validateLongRange minimum="5" maximum="19"/>
-            </h:inputText>
+            <h:inputText size="3" id="cod" value="#{funcionario.cod}"/>
+           
+            <h:outputLabel value="Nome" for="nome"/>
+            <h:inputText id="nome" value="#{funcionario.nome}"/>
             <h:outputLabel value="Aniversario" for="niver"/>
-            <h:inputText value="#{funcionario.aniversario}" id="niver" required="true">
+            <h:inputText value="#{funcionario.aniversario}" id="niver" >
                 <f:convertDateTime pattern="dd/MM/YYYY"/>
             </h:inputText>
             <h:outputLabel value="Salario" for="salario"/>
             <h:inputText value="#{funcionario.salario}" id="salario">
-                <f:convertNumber type="currency" locale="pt_BR"/>
-                <f:validateRequired/>
-                <f:validateDoubleRange minimum="0.0"/>
+                <f:convertNumber locale="pt_BR"/>
             </h:inputText>
+            <h:outputLabel value="Sexo" for="sexo"/>
+            <h:selectOneRadio id="sexo" value="#{funcionario.sexo}">
+                <f:selectItem
+                    itemValue="M"
+                    itemLabel="M"
+                    />
+                <f:selectItem 
+                    itemValue="F"
+                    itemLabel="F"
+                              />
+            </h:selectOneRadio>
             <h:outputLabel value=""/>   
             <h:commandButton value="Go"/>    
         </h:panelGrid>

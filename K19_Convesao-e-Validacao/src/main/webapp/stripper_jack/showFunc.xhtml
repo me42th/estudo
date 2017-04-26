@@ -11,8 +11,12 @@
         <h:panelGrid columns="2">
             <h:outputFormat value="COD {0}">
                 <f:param value="#{funcionario.cod}"/>
-            </h:outputFormat>  
+                
+            </h:outputFormat>
+            
             <h:outputLabel value=""/>
+            <h:outputLabel value=""/>
+            <h:outputText value="#{funcionario.nome}"/>
             <h:outputLabel value=""/>
             <h:panelGrid columns="2">
                 <h:outputLabel value="Nascimento "/>
