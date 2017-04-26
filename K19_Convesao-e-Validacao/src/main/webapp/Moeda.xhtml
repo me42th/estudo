@@ -1,0 +1,13 @@
+<ui:composition template="/template/default.xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:define name="conteudo">
+        <ui:include src="stripper_jack/cadMoeda.xhtml">
+            <ui:param name="dinheiro" value="#{dinheiroBean.dinheiro}"/>  
+        </ui:include>
+        <br/>
+        <ui:include src="/stripper_jack/showMoeda.xhtml" >
+            <ui:param name="dinheiro" value="#{dinheiroBean.dinheiro}"/>
+        </ui:include>
+    </ui:define>
+</ui:composition>
+

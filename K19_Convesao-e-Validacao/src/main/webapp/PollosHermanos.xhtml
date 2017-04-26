@@ -1,0 +1,14 @@
+
+<ui:composition template="/template/default.xhtml" 
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:define name="conteudo">
+        <ui:include src="stripper_jack/cadFunc.xhtml">
+            <ui:param name="funcionario" value="#{funcionarioBean.funcionario}"/>
+        </ui:include>    
+         
+        <h:link outcome="HHM" value="Visualizar"/>
+         
+    </ui:define>    
+</ui:composition>
+

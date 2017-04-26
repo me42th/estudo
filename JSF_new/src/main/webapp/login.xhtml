@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Meth's page</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputLabel for="nome" value="Nome"/>
+            <br/>
+            <h:inputText id="nome" readonly="true" value="#{chuck.nome}"/>
+            <br/>
+            <h:outputLabel for="sexo" value="Sexo"/>
+            <h:selectOneRadio id="sexo" value="#{chuck.sexo}" readonly="true">
+                <f:selectItem itemValue="M" itemLabel="M"/>
+                <f:selectItem itemValue="F" itemLabel="F"/>
+
+            </h:selectOneRadio>
+            
+            <h:outputLabel for="nasc" value="Nasc"/>
+            <br/>
+            <h:inputText id="nasc" value="#{chuck.nasc}" readonly="true"/>
+            <br/><br/>
+            <h:outputLabel value="Cursos" for="cursos"/>
+            <br/>
+            
+            <h:selectManyListbox value="#{chuck.cursosEscolhidos}" id="cursos" style=''>
+                <f:selectItems value="#{chuck.lista}"
+                               var="curso"
+                               itemValue="#{curso.cod}"
+                               itemLabel="#{curso.nome}"
+                               />
+            </h:selectManyListbox>
+            
+            <br/>
+            <h:commandButton value="Go" action="#{chuck.next}"/>
+        </h:form>
+    </h:body>
+</html>
+

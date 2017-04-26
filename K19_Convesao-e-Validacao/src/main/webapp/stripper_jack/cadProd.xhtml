@@ -1,0 +1,40 @@
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Cadastro Produto"/>
+            <h:outputLabel value=""/>
+            <h:outputLabel value=""/>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Nome" for="nome"/>
+                <h:inputText value="#{estoque.produto.nome}" id="nome">
+                    <f:validateRegex pattern="[\\sa-zA-Z]{5,30}"/>
+                    <f:validateRequired/>
+                </h:inputText>
+                <h:outputLabel value="Codigo" for="cod"/>
+                <h:inputText value="#{estoque.produto.codigo}" id="cod">
+                    <f:validateRequired/>
+                    <f:validateRegex pattern="[a-zA-Z][0-9]{3,9}"/>
+                </h:inputText>    
+                <h:outputLabel value="Tamanho" for="tam"/>
+                <h:inputText value="#{estoque.produto.tamanho}" id="tam">
+                    <f:validateLongRange minimum="1" maximum="32"/>
+                    <f:validateRequired/>
+                </h:inputText>
+                <h:outputLabel value="Volume" for="vol"/>
+                <h:inputText value="#{estoque.produto.volume}" id="vol">
+                    <f:validateDoubleRange minimum="0.1"/>
+                    <f:validateRequired/>
+                </h:inputText>
+            </h:panelGrid>
+            <h:outputLabel value=""/>
+            <h:panelGrid columns="2">
+                <h:commandButton value="Go" action="#{estoque.addProduto()}"/>
+                
+            </h:panelGrid>
+        </h:panelGrid>
+    </h:form>
+    
+</ui:composition>
+

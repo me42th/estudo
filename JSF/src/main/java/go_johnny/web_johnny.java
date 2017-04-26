@@ -23,10 +23,17 @@ public class web_johnny extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            out.println("<html><head><title>MyServlet</title></head><body>");
+            out.println("<html>"
+                        + " <h:head>"
+                            + "<title>"
+                                + "MyServlet"
+                            + "</title>"
+                        + "</h:head>"
+                        + "<h:body>"
+                        +"Valor:#{testaNumero.numero}");
             out.write(getServletConfig().getInitParameter("webInitParam1"));
             out.write(getServletConfig().getInitParameter("webInitParam2"));
-            out.println("</body>");
+            out.println("</h:body>");
             out.println("</html>");
         } finally {
             out.close();
