@@ -1,0 +1,35 @@
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+        
+        <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Cadastro"/>
+            <h:outputLabel value=""/>
+            <h:outputLabel value=""/>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="CPF" for="cpf"/>
+                <h:inputText id="cpf" value="#{cad_cpf.temp}"/>
+                <h:outputLabel value=""/>
+                <h:commandButton value="Go" action="#{cad_cpf.addCPF()}"/>
+            </h:panelGrid>
+            <h:outputLabel value=""/>
+            <h:outputLabel value=""/>
+            <h:outputLabel value="Registros" rendered="#{cad_cpf.lista.size()>0}"/>
+            
+        </h:panelGrid>    
+        </h:form>
+        <h:form>
+            <h:dataTable value="#{cad_cpf.lista}" var="cpf" rendered="#{cad_cpf.lista.size()>0}">
+                <h:column>
+                    #{cpf}
+                </h:column>
+                <h:column>
+                    <h:commandLink value="remover" action="#{cad_cpf.rmvCPF(cpf)}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+       
+    
+</ui:composition>
